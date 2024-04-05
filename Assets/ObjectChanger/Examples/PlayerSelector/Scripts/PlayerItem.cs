@@ -7,12 +7,12 @@ public class PlayerItem : Data
 {
     [SerializeField] private GameObject playerPrefab = null;
     [SerializeField] private GameObject playerUIPrefab = null;
-    [SerializeField] private GameObject canvas = null;
+    [SerializeField] private Transform parentUI = null;
     
     private void Awake()
     {
         playerPrefab = Instantiate(playerPrefab);
-        playerUIPrefab = Instantiate(playerUIPrefab, canvas.transform);
+        playerUIPrefab = Instantiate(playerUIPrefab, parentUI.transform);
     }
 
     public override void Show()
@@ -29,6 +29,6 @@ public class PlayerItem : Data
 
     public override void Select()
     {
-        Debug.Log("Select");
+        // TODO
     }
 }

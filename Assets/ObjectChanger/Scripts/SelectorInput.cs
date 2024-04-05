@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Selector))]
 public class SelectorInput : MonoBehaviour
 {
     [SerializeField] private KeyCode leftKey = KeyCode.LeftArrow;
@@ -17,6 +18,8 @@ public class SelectorInput : MonoBehaviour
 
     private void Update() {
 #if UNITY_STANDALONE
+        PCInput();
+#elif UNITY_EDITOR
         PCInput();
 #endif
     }
