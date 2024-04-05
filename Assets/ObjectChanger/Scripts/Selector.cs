@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Selector : MonoBehaviour
 {
-    [SerializeField] private List<Data> items = null;
+    private List<Data> items = null;
 
     private int itemIndex = 0;
 
     private void Awake()
     {
+        items = new List<Data>();
+        Data[] components = GetComponentsInChildren<Data>();
+        foreach(var component in components){
+            items.Add(component);
+        }
         if (items.Count > 0)
         {
             foreach (var item in items)
